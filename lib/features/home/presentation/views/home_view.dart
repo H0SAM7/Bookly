@@ -1,6 +1,6 @@
 import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/style.dart';
-import 'package:bookly/features/home/presentation/views/widgets/best_saller_item.dart';
+import 'package:bookly/features/home/presentation/views/widgets/best_saller_list_view.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_list_view.dart';
 import 'package:bookly/features/splash/presentation/views/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
@@ -42,24 +42,5 @@ class HomeView extends StatelessWidget {
         )
       ],
     ));
-  }
-}
-
-class BestSallerListView extends StatelessWidget {
-  const BestSallerListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        padding: EdgeInsets.zero,
-        itemCount: 10,
-        itemBuilder: (context, ind) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.0),
-            child: BestSallerItem(),
-          );
-        });
   }
 }
