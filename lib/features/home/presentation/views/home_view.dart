@@ -12,27 +12,54 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomAppBar(
-            image: AssetsHelper.logo,
-            icon: FontAwesomeIcons.magnifyingGlass,
+        body: CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomAppBar(
+                image: AssetsHelper.logo,
+                icon: FontAwesomeIcons.magnifyingGlass,
+              ),
+              const BooksListView(),
+              const SizedBox(
+                height: 30,
+              ),
+              const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Best Sales',
+                  style: Styles.textStyle18,
+                ),
+              ),
+              const BestSallerListView(),
+            ],
           ),
-          const BooksListView(),
-          const SizedBox(
-            height: 30,
-          ),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              'Best Sales',
-              style: Styles.textStyle18,
-            ),
-          ),
-          const BestSallerItem(),
-        ],
-      ),
-    );
+        ),
+        const SliverToBoxAdapter(
+          child: BestSallerListView(),
+        )
+      ],
+    ));
+  }
+}
+
+class BestSallerListView extends StatelessWidget {
+  const BestSallerListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.zero,
+        itemCount: 10,
+        itemBuilder: (context, ind) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(vertical: 10.0),
+            child: BestSallerItem(),
+          );
+        });
   }
 }
