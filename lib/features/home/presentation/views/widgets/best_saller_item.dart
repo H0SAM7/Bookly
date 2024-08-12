@@ -65,7 +65,7 @@ class BestSallerItem extends StatelessWidget {
                       )
                       
                     ),
-                    const Spacer(),
+                     Spacer(),
                     BookRating()
                    
                   ],
