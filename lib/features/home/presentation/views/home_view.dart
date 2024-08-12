@@ -19,7 +19,10 @@ class HomeView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomAppBar(
-                image: AssetsHelper.logo,
+                widget: Image.asset(
+                  AssetsHelper.logo,
+                  height: 18,
+                ),
                 icon: FontAwesomeIcons.magnifyingGlass,
               ),
               const BooksListView(),

@@ -1,9 +1,8 @@
-
 import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
-class CustomListViewItem extends StatelessWidget {
-  const CustomListViewItem({super.key});
+class CustomBookImage extends StatelessWidget {
+  const CustomBookImage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +12,12 @@ class CustomListViewItem extends StatelessWidget {
         padding: EdgeInsets.zero,
         decoration: BoxDecoration(
           color: Colors.amber,
-            image: DecorationImage(
-          image: AssetImage(AssetsHelper.test),
-          fit: BoxFit.fill,
-        )),
+          image: DecorationImage(
+            image: AssetImage(AssetsHelper.test),
+            fit: BoxFit.fill,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
       ),
     );
   }
