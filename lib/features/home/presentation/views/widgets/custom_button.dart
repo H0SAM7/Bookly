@@ -1,4 +1,3 @@
-
 import 'package:bookly/core/utils/style.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +9,7 @@ class CustomButton extends StatelessWidget {
       this.borderRadius});
   final Color color, txtColor;
   final BorderRadius? borderRadius;
-  
+
   @override
   Widget build(BuildContext context) {
     return TextButton(

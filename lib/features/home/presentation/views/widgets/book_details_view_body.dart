@@ -3,7 +3,6 @@ import 'package:bookly/features/home/presentation/views/widgets/similler_books_s
 import 'package:bookly/features/splash/presentation/views/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 
-
 class BookDetailsBody extends StatelessWidget {
   const BookDetailsBody({super.key});
 
@@ -34,7 +33,9 @@ class BookDetailsBody extends StatelessWidget {
                   ),
                 ),
                 const SimillerBooksSection(),
-                const SizedBox(height: 40,)
+                const SizedBox(
+                  height: 40,
+                )
               ],
             ),
           ),

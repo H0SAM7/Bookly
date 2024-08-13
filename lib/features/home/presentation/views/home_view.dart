@@ -36,13 +36,12 @@ class HomeView extends StatelessWidget {
                   style: Styles.textStyle18,
                 ),
               ),
-     
             ],
           ),
         ),
         const SliverFillRemaining(
           child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
+            padding: EdgeInsets.symmetric(horizontal: 30),
             child: BestSallerListView(),
           ),
         )

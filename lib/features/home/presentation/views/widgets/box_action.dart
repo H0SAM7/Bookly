@@ -18,7 +18,7 @@ class BoxAction extends StatelessWidget {
             ),
           ),
         ),
-         Expanded(
+        Expanded(
           child: CustomButton(
             color: Colors.amber,
             txtColor: Colors.white,

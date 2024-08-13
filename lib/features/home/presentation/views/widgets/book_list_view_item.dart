@@ -1,4 +1,3 @@
-
 import 'package:bookly/core/utils/app_routes.dart';
 import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/style.dart';
@@ -12,7 +11,7 @@ class BookListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         GoRouter.of(context).push(AppRoutes.kBookDetails);
       },
       child: Row(
@@ -57,17 +56,11 @@ class BookListViewItem extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text(
-                      'Free',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold
-                      )
-                      
-                    ),
-                     Spacer(),
+                    Text('Free',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
+                    Spacer(),
                     BookRating()
-                   
                   ],
                 ),
               ],
@@ -78,4 +71,3 @@ class BookListViewItem extends StatelessWidget {
     );
   }
 }
-
