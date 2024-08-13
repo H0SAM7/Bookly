@@ -18,5 +18,7 @@ final class AllBooksSuccess extends AllBooksState {
 final class AllBooksLoading extends AllBooksState {}
 
 final class AllBooksFailure extends AllBooksState {
-  late final String errMessage;
+   final String errMessage;
+
+  const AllBooksFailure(this.errMessage);
 }
