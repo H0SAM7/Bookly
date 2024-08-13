@@ -1,4 +1,4 @@
-import 'package:bookly/features/home/presentation/views/widgets/custom_button.dart';
+import 'package:bookly/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class BoxAction extends StatelessWidget {
