@@ -48,7 +48,7 @@ class NewsBooksListView extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: BookListViewItem(
-                image: booksList[ind].volumeInfo.imageLinks.thumbnail,
+                image: booksList[ind].volumeInfo.imageLinks?.thumbnail??'',
                 bookModel: booksList[ind],
               ),
             );

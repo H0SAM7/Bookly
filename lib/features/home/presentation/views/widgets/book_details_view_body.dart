@@ -5,8 +5,11 @@ import 'package:bookly/features/splash/presentation/views/widgets/custom_appbar.
 import 'package:flutter/material.dart';
 
 class BookDetailsBody extends StatelessWidget {
-  const BookDetailsBody({super.key, required this.bookModel});
- final BookModel bookModel;
+  const BookDetailsBody({
+    super.key,
+    required this.bookModel,
+  });
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -23,11 +26,15 @@ class BookDetailsBody extends StatelessWidget {
                 SafeArea(
                   child: CustomAppBar(
                     widget: IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.close)),
+                        onPressed: () {
+                          
+                        }, icon: const Icon(Icons.close)),
                     icon: Icons.shopping_cart_outlined,
                   ),
                 ),
-                 BookDetailsSection(bookModel: bookModel,),
+                BookDetailsSection(
+                  bookModel: bookModel,
+                ),
                 const Expanded(
                   child: SizedBox(
                     height: 50,

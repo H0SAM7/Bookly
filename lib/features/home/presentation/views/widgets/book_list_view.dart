@@ -14,29 +14,33 @@ class BooksListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AllBooksCubit, AllBooksState>(
       builder: (context, state) {
-      if(state is AllBooksSuccess){
-        log('all books fetched done');
+        if (state is AllBooksSuccess) {
+          log('all books fetched done');
           return SizedBox(
-          height: MediaQuery.of(context).size.height * .25,
-          child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-              padding: EdgeInsets.zero,
-              scrollDirection: Axis.horizontal,
-              itemCount: state.books.length,
-              itemBuilder: (context, ind) {
-                return  Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: CustomBookImage(image: state.books[ind].volumeInfo.imageLinks.thumbnail,),
-                );
-              }),
-        );
-      }
-      else if(state is AllBooksFailure){
-        return  ErrWidget(errMess: state.errMessage,);
-      }
-      else{
-        return const  CustomLoadingIndicator();
-      }
+            height: MediaQuery.of(context).size.height * .25,
+            child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                padding: EdgeInsets.zero,
+                scrollDirection: Axis.horizontal,
+                itemCount: state.books.length,
+                itemBuilder: (context, ind) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: CustomBookImage(
+                      image:
+                          state.books[ind].volumeInfo.imageLinks?.thumbnail ??
+                              '',
+                    ),
+                  );
+                }),
+          );
+        } else if (state is AllBooksFailure) {
+          return ErrWidget(
+            errMess: state.errMessage,
+          );
+        } else {
+          return const CustomLoadingIndicator();
+        }
       },
     );
   }

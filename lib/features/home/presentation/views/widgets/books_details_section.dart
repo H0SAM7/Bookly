@@ -15,16 +15,16 @@ class BookDetailsSection extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * .30),
-          child: const CustomBookImage(
+          child:  CustomBookImage(
             image:
-                'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef',
+                bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
           ),
         ),
         const SizedBox(
           height: 43,
         ),
-        const Text(
-          'The Apple Book',
+         Text(
+          bookModel.volumeInfo.title,
           style: Styles.textStyle30,
         ),
         const SizedBox(

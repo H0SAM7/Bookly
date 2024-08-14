@@ -46,7 +46,9 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> featchSimillerBooks() async {
+  Future<Either<Failure, List<BookModel>>> featchSimillerBooks({
+    required String category,
+  }) async {
     try {
       var data = await ApiServices().getAllBooks(
         endPoint:
