@@ -8,6 +8,7 @@ abstract class AppRoutes {
   static const String kHomeView = '/HomeView';
   static const String kBookDetails = '/BookDetails';
   static const String kSearchView = '/SearchView';
+    static const String kSplashView= '/SplashView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -20,7 +21,7 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: kBookDetails,
-        builder: (context, state) => const BookDetails(),
+        builder: (context, state) => const BookDetails(bookModel: null,),
       ),
       GoRoute(
         path: kSearchView,

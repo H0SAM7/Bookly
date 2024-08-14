@@ -15,7 +15,10 @@ class SimillerBooksListView extends StatelessWidget {
           itemBuilder: (context, ind) {
             return const Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.0),
-              child: CustomBookImage(),
+              child: CustomBookImage(
+                image:
+                    'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef',
+              ),
             );
           }),
     );

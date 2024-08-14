@@ -15,26 +15,27 @@ class BooksListView extends StatelessWidget {
     return BlocBuilder<AllBooksCubit, AllBooksState>(
       builder: (context, state) {
       if(state is AllBooksSuccess){
-        log('Doneeeeeeeee');
+        log('all books fetched done');
           return SizedBox(
           height: MediaQuery.of(context).size.height * .25,
           child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
               padding: EdgeInsets.zero,
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: state.books.length,
               itemBuilder: (context, ind) {
-                return const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: CustomBookImage(),
+                return  Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: CustomBookImage(image: state.books[ind].volumeInfo.imageLinks.thumbnail,),
                 );
               }),
         );
       }
-      else if(state is AllBooksLoading){
-        return const CustomLoadingIndecator();
+      else if(state is AllBooksFailure){
+        return  ErrWidget(errMess: state.errMessage,);
       }
       else{
-        return const ErrWidget();
+        return const  CustomLoadingIndicator();
       }
       },
     );

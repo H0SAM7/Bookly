@@ -1,13 +1,16 @@
 import 'package:bookly/core/utils/app_routes.dart';
-import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/style.dart';
+import 'package:bookly/core/widgets/custom_cached_image.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
-
+  const BookListViewItem(
+      {super.key, required this.image, required this.bookModel});
+  final String image;
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,51 +19,41 @@ class BookListViewItem extends StatelessWidget {
       },
       child: Row(
         children: [
-          SizedBox(
-            height: 120,
-            child: AspectRatio(
-              aspectRatio: 2.8 / 4,
-              child: Container(
-                padding: EdgeInsets.zero,
-                decoration: BoxDecoration(
-                    color: Colors.amber,
-                    image: DecorationImage(
-                      image: AssetImage(AssetsHelper.test),
-                      fit: BoxFit.fill,
-                    )),
-              ),
-            ),
-          ),
+          SizedBox(height: 120, child: CustomImage(image: image)),
           const SizedBox(
             width: 30,
           ),
-          const Expanded(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Best Seller Best Seller Best Seller Best SellerBest SellerBest Seller Best Seller Best SellerBest Seller Best SellerBest SellerBest Seller Best SellerBest Seller Best Seller',
+                  bookModel.volumeInfo.title,
                   style: Styles.textStyle20,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 3,
                 ),
                 Text(
-                  'tttttttttttttttttttttttttt',
+                  bookModel.volumeInfo.authors![0],
                   style: Styles.textStyle14,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 3,
                 ),
-                Row(
+                 Row(
                   children: [
-                    Text('Free',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold)),
-                    Spacer(),
-                    BookRating()
+                    const Text(
+                      'Free',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                    BookRating(bookModel: bookModel,)
                   ],
                 ),
               ],

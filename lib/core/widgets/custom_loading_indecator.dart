@@ -1,10 +1,23 @@
+
 import 'package:flutter/material.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 
-class CustomLoadingIndecator extends StatelessWidget {
-  const CustomLoadingIndecator({super.key});
-
+class CustomLoadingIndicator extends StatelessWidget {
+  const CustomLoadingIndicator({super.key, this.h = 24, this.w = 32});
+  final double? h;
+  final double? w;
   @override
   Widget build(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
+    return Center(
+        child: SizedBox(
+      height: h,
+      width: w,
+      child: const LoadingIndicator(
+          indicatorType: Indicator.lineScalePulseOut,
+          colors: [
+            Color.fromARGB(255, 237, 229, 229),
+            Color.fromARGB(255, 238, 213, 215)
+          ]),
+    ));
   }
 }
