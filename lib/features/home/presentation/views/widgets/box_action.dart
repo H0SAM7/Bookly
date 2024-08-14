@@ -10,6 +10,7 @@ class BoxAction extends StatelessWidget {
       children: [
         Expanded(
           child: CustomButton(
+            txt: 'Free',
             color: Colors.white,
             txtColor: Colors.black,
             borderRadius: BorderRadius.only(
@@ -20,6 +21,7 @@ class BoxAction extends StatelessWidget {
         ),
         Expanded(
           child: CustomButton(
+            txt: 'Paid',
             color: Colors.amber,
             txtColor: Colors.white,
             borderRadius: BorderRadius.only(

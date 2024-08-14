@@ -3,6 +3,7 @@ import 'package:bookly/features/home/presentation/views/widgets/books_details_se
 import 'package:bookly/features/home/presentation/views/widgets/similler_books_section.dart';
 import 'package:bookly/features/splash/presentation/views/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BookDetailsBody extends StatelessWidget {
   const BookDetailsBody({
@@ -27,7 +28,7 @@ class BookDetailsBody extends StatelessWidget {
                   child: CustomAppBar(
                     widget: IconButton(
                         onPressed: () {
-                          
+                          GoRouter.of(context).pop();
                         }, icon: const Icon(Icons.close)),
                     icon: Icons.shopping_cart_outlined,
                   ),

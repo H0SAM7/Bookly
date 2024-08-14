@@ -6,8 +6,9 @@ class CustomButton extends StatelessWidget {
       {super.key,
       required this.color,
       required this.txtColor,
-      this.borderRadius});
+      this.borderRadius, required this.txt});
   final Color color, txtColor;
+  final String txt;
   final BorderRadius? borderRadius;
 
   @override
@@ -21,7 +22,7 @@ class CustomButton extends StatelessWidget {
       ),
       onPressed: () {},
       child: Text(
-        '99.5',
+        txt,
         style: Styles.textStyle16.copyWith(
           color: txtColor,
           fontWeight: FontWeight.w900,

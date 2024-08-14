@@ -18,7 +18,7 @@ class SimillerBooksListView extends StatelessWidget {
             child: ListView.builder(
                 padding: EdgeInsets.zero,
                 scrollDirection: Axis.horizontal,
-                itemCount: 10,
+                itemCount: state.books.length,
                 itemBuilder: (context, ind) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5.0),

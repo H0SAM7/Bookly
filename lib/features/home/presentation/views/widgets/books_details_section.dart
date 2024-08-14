@@ -26,12 +26,13 @@ class BookDetailsSection extends StatelessWidget {
          Text(
           bookModel.volumeInfo.title,
           style: Styles.textStyle30,
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 6,
         ),
-        const Text(
-          'The Apple Book',
+         Text(
+         bookModel.volumeInfo.authors![0],
           style: Styles.textStyle18,
         ),
          BookRating(
